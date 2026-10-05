@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext.jsx';
 import HabitForm from './HabitForm.jsx';
 import HabitMatrix from './HabitMatrix.jsx';
+import WeeklyProgress from './WeeklyProgress.jsx';
 
 // Preview-only mock data so the UI renders without a backend running.
 // Swap this back to loading from `api.js` once the Express/MySQL backend
@@ -51,8 +52,6 @@ export default function Dashboard() {
     });
   }
 
-  const completionRate = computeCompletionRate(habits, logs);
-
   return (
     <div className="min-h-screen px-4 py-10 max-w-3xl mx-auto">
       <header className="flex items-center justify-between mb-10">
@@ -70,10 +69,11 @@ export default function Dashboard() {
       </div>
 
       {habits.length > 0 && (
-        <p className="text-sm text-ink/60 mb-4">
-          {completionRate}% of habit-days completed this week
-        </p>
-      )}
+  <WeeklyProgress
+    habits={habits}
+    logs={logs}
+  />
+)}
 
       <HabitMatrix
         habits={habits}
