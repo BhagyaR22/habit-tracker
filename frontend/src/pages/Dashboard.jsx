@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext.jsx';
-import HabitForm from './HabitForm.jsx';
-import HabitMatrix from './HabitMatrix.jsx';
-import WeeklyProgress from './WeeklyProgress.jsx';
+import HabitForm from "../components/HabitForm.jsx";
+import HabitMatrix from "../components/HabitMatrix.jsx";
+import WeeklyProgress from "../components/WeeklyProgress.jsx";
 
 // Preview-only mock data so the UI renders without a backend running.
 // Swap this back to loading from `api.js` once the Express/MySQL backend
@@ -53,16 +53,25 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="min-h-screen px-4 py-10 max-w-3xl mx-auto">
-      <header className="flex items-center justify-between mb-10">
-        <div>
-          <h1 className="text-3xl">Your habits</h1>
-          <p className="text-ink/60 text-sm">Hi {user?.name} — last 7 days (habit data is still sample data)</p>
-        </div>
-        <button onClick={logout} className="text-sm text-ink/60 hover:text-clay">
-          Log out
-        </button>
-      </header>
+    <div className="min-h-screen px-4 py-10 max-w-3xl mx-auto text-ink dark:text-cream">
+  <header className="flex items-center justify-between mb-10">
+    <div>
+      <h1 className="text-3xl text-ink dark:text-cream">
+        Your habits
+      </h1>
+
+      <p className="text-ink/60 dark:text-cream/60 text-sm">
+        Hi {user?.name} — last 7 days (habit data is still sample data)
+      </p>
+    </div>
+
+    <button
+      onClick={logout}
+      className="text-sm text-ink/60 dark:text-cream/60 hover:text-clay"
+    >
+      Log out
+    </button>
+  </header>
 
       <div className="mb-6">
         <HabitForm onAdd={handleAddHabit} />

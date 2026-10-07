@@ -64,22 +64,28 @@ export default function WeeklyProgress({ habits, logs }) {
       : Math.round((completedActivities / totalActivities) * 100);
 
   return (
-    <section className="mb-8 p-5 rounded-lg bg-white">
+    <section className="mb-8 p-5 rounded-lg bg-white dark:bg-white/10 text-ink dark:text-cream transition-colors duration-300">
       <h2 className="text-xl mb-4">Weekly Progress</h2>
 
       <div className="flex flex-wrap items-center gap-8 mb-5">
         <div>
-          <p className="text-sm text-ink/60">Completed</p>
+          <p className="text-sm text-ink/60 dark:text-cream/60">
+            Completed
+          </p>
           <p className="text-xl">{completedActivities}</p>
         </div>
 
         <div>
-          <p className="text-sm text-ink/60">Activities</p>
+          <p className="text-sm text-ink/60 dark:text-cream/60">
+            Activities
+          </p>
           <p className="text-xl">{totalActivities}</p>
         </div>
 
         <div>
-          <p className="text-sm text-ink/60">Progress</p>
+          <p className="text-sm text-ink/60 dark:text-cream/60">
+            Progress
+          </p>
           <p className="text-xl">{overallPercentage}%</p>
         </div>
       </div>
@@ -92,7 +98,7 @@ export default function WeeklyProgress({ habits, logs }) {
               <span>{day.percentage}%</span>
             </div>
 
-            <div className="h-2 bg-ink/10 rounded-full overflow-hidden">
+            <div className="h-2 bg-ink/10 dark:bg-cream/10 rounded-full overflow-hidden">
               <div
                 className="h-full bg-clay rounded-full"
                 style={{ width: `${day.percentage}%` }}
