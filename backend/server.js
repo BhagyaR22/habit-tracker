@@ -5,6 +5,8 @@ import express from 'express';
 import cors from 'cors';
 import { pool } from './src/config/db.js';
 import authRoutes from './src/routes/auth.routes.js';
+import habitRoutes from './src/routes/habit.routes.js';
+import logRoutes from './src/routes/log.routes.js';
 
 const app = express();
 
@@ -23,6 +25,8 @@ app.get('/api/health', async (req, res) => {
 });
 
 app.use('/api/auth', authRoutes);
+app.use('/api/habits', habitRoutes);
+app.use('/api/logs', logRoutes);
 
 // Catch-all error handler: anything thrown in a route ends up here
 app.use((err, req, res, next) => {
